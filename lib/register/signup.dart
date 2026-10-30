@@ -1,5 +1,6 @@
 
 
+import 'package:firebase_depi2/home/controller/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -26,6 +27,10 @@ class Signup extends StatelessWidget {
                     backgroundColor: Colors.green,
                     content: Text("Login Success")),
               );
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => HomeView()),
+              );
+
             }
 
             if (state is RegisterFailure) {

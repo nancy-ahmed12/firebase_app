@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget{
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Firebase Authentication',
-        home: HomeView()
+        home: Signup()
     );
   }
 }

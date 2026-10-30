@@ -6,7 +6,8 @@ class AddStudentScreen extends StatelessWidget {
   const AddStudentScreen({super.key});
 @override
 Widget build(BuildContext context) {
-  return BlocProvider( create: (_) => HomeCubit(),
+  return BlocProvider(
+    create: (_) => HomeCubit(),
     child: const AddStudentForm(),
   ); } }
 class AddStudentForm extends StatelessWidget {
@@ -102,6 +103,7 @@ return Scaffold(
                 cubit.nameControl.clear();
                 cubit.ageControl.clear();
                 cubit.gradeControl.clear();
+                Navigator.pop(context,true);
               } else if (cubit.state is HomeFailure) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(

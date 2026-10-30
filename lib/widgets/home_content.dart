@@ -18,12 +18,14 @@ Widget build(BuildContext context) {
         MaterialPageRoute(builder: (_) => AddStudentScreen(),)
       );
        if(!context.mounted)return;
-       if(result == true){
-        await context.read<HomeCubit>().getStudentsFromServer();
+       if(result == true) {
+         await context.read<HomeCubit>().getStudentsFromServer();
+
+         if (!context.mounted) return;
+         ScaffoldMessenger.of(context).showSnackBar(
+           SnackBar(backgroundColor: Colors.green,
+               content: Text('Student Added Success')),);
        }
-       if(!context.mounted)return;
-       ScaffoldMessenger.of(context).showSnackBar(
-         SnackBar(backgroundColor: Colors.green, content: Text('Student Added Success')), );
     },
       backgroundColor: Colors.orange,
       child: Icon(Icons.add,color: Colors.white,),),
